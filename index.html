@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SmartCityPlan - Mozgásban a jövő</title>
     <style>
-        /* 1. KINÉZET (CSS) */
+        /* --- KINÉZET (A te style.css kódod alapján) --- */
         body {
             background-color: #1a1a1a;
             color: #e0e0e0;
@@ -35,8 +35,8 @@
             height: auto;
         }
 
-        h1 { font-size: 2.5rem; margin: 0; color: #fff; letter-spacing: 2px; }
-        header p { color: #00d4ff; font-size: 1.1rem; margin-top: 10px; font-style: italic; }
+        h1 { font-size: 2.8rem; margin: 0; color: #fff; letter-spacing: 2px; }
+        header p { color: #00d4ff; font-size: 1.2rem; margin-top: 10px; font-style: italic; }
 
         .video-container {
             margin: 30px auto;
@@ -65,7 +65,7 @@
 
         .manifesto {
             font-weight: bold;
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             color: #00d4ff;
             text-align: center;
             display: block;
@@ -75,7 +75,7 @@
         .cards {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 30px;
             padding: 40px 20px;
             flex-wrap: wrap;
         }
@@ -83,11 +83,12 @@
         .card {
             position: relative;
             width: 280px;
-            height: 350px;
+            height: 380px;
             border-radius: 15px;
             overflow: hidden;
             background-color: #333;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+            transition: transform 0.4s ease;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
         }
 
         .card img {
@@ -102,17 +103,19 @@
             width: 100%;
             background: rgba(0, 0, 0, 0.85);
             color: #fff;
-            padding: 15px 0;
+            padding: 20px 0;
             font-weight: bold;
-            font-size: 1rem;
+            font-size: 1.1rem;
         }
+
+        .card:hover { transform: translateY(-15px); }
 
         footer {
             padding: 60px 20px;
             background-color: #111;
             border-top: 1px solid #333;
-            font-size: 0.8rem;
-            color: #666;
+            font-size: 0.85rem;
+            color: #777;
         }
     </style>
 </head>
@@ -136,9 +139,9 @@
         </section>
 
         <section class="description-text">
-            <h2>OkosVáros – Fenntartható vízió a jövőért</h2>
-            <p>Gondolkoztál már azon, milyen lesz az élet egy folyamatosan növekvő nagyvárosban? Hogyan tehetnénk a környezetünket élhetőbbé az energiapazarlás megállítása és új, alternatív megoldások keresése révén?</p>
-            <p>Az <strong>OkosVáros (smartcityplan)</strong> projekt egy olyan egyedi vízió, amely a kinetikus és egyéb energiák urbanisztikai hasznosítására épül. Vízióm egy olyan rendszer kidolgozása, amely nem rombolja, hanem támogatja a környezetünket.</p>
+            <h2>OkosVáros – Fenntartható vízió Budapest és más városok jövőjéért</h2>
+            <p>Gondolkoztál már azon, milyen lesz az élet egy folyamatosan növekvő nagyvárosban? Hogyan tehetnénk a környezetünket élhetőbbé az energiapazarlás megállítása révén?</p>
+            <p>Az <strong>OkosVáros (smartcityplan)</strong> projekt egy olyan egyedi vízió, amely a kinetikus és egyéb energiák hasznosítására épül.</p>
             <p class="manifesto">A jövőt mi építjük.</p>
         </section>
 
@@ -170,27 +173,22 @@
             const span = document.createElement('span');
             span.innerText = words[Math.floor(Math.random() * words.length)];
             span.style.position = 'absolute';
-            span.style.color = 'rgba(255, 255, 255, 0.05)';
+            span.style.color = 'rgba(255, 255, 255, 0.08)'; /* Picit láthatóbbá tettem */
             span.style.left = Math.random() * 100 + 'vw';
             span.style.top = Math.random() * 100 + 'vh';
             span.style.fontSize = (Math.random() * 2 + 1) + 'rem';
             span.style.pointerEvents = 'none';
-            span.style.transition = 'all 15s linear';
+            span.style.transition = 'all 18s linear';
             bgContainer.appendChild(span);
 
-            // Indítsuk el a mozgást
             setTimeout(() => {
                 span.style.left = Math.random() * 100 + 'vw';
                 span.style.top = Math.random() * 100 + 'vh';
             }, 100);
 
-            // Töröljük a régi szavakat
-            setTimeout(() => { span.remove(); }, 15000);
+            setTimeout(() => { span.remove(); }, 18000);
         }
-
-        // Több szót generálunk az elején
-        for(let i=0; i<10; i++) { setTimeout(createMovingText, i * 500); }
-        setInterval(createMovingText, 2000);
+        setInterval(createMovingText, 1500);
     </script>
 </body>
 </html>
