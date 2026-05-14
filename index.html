@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SmartCityPlan - Mozgásban a jövő</title>
     <style>
-        /* MINDEN EGYBEN: CSS STÍLUSOK */
+        /* 1. KINÉZET (CSS) */
         body {
             background-color: #1a1a1a;
             color: #e0e0e0;
@@ -13,6 +13,17 @@
             margin: 0;
             padding: 0;
             text-align: center;
+            overflow-x: hidden;
+        }
+
+        .background-text-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
         }
 
         header { padding: 40px 20px; }
@@ -24,17 +35,18 @@
             height: auto;
         }
 
-        h1 { font-size: 2.5rem; margin: 0; color: #fff; }
-        header p { color: #00d4ff; font-size: 1.2rem; margin-top: 10px; }
+        h1 { font-size: 2.5rem; margin: 0; color: #fff; letter-spacing: 2px; }
+        header p { color: #00d4ff; font-size: 1.1rem; margin-top: 10px; font-style: italic; }
 
         .video-container {
             margin: 30px auto;
             max-width: 700px;
             width: 90%;
-            box-shadow: 0 0 30px rgba(0,0,0,0.5);
-            border-radius: 12px;
+            box-shadow: 0 0 40px rgba(0,0,0,0.6);
+            border-radius: 15px;
             overflow: hidden;
             line-height: 0;
+            border: 1px solid #333;
         }
 
         .video-container iframe {
@@ -46,7 +58,7 @@
         .description-text {
             max-width: 800px;
             margin: 40px auto;
-            padding: 0 20px;
+            padding: 0 25px;
             line-height: 1.8;
             text-align: justify;
         }
@@ -63,19 +75,19 @@
         .cards {
             display: flex;
             justify-content: center;
-            gap: 25px;
-            padding: 40px;
+            gap: 20px;
+            padding: 40px 20px;
             flex-wrap: wrap;
         }
 
         .card {
             position: relative;
             width: 280px;
-            height: 380px;
+            height: 350px;
             border-radius: 15px;
             overflow: hidden;
             background-color: #333;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
         }
 
         .card img {
@@ -88,23 +100,26 @@
             position: absolute;
             bottom: 0;
             width: 100%;
-            background: rgba(0, 0, 0, 0.8);
+            background: rgba(0, 0, 0, 0.85);
             color: #fff;
-            padding: 20px 0;
+            padding: 15px 0;
             font-weight: bold;
-            font-size: 1.1rem;
+            font-size: 1rem;
         }
 
         footer {
             padding: 60px 20px;
             background-color: #111;
             border-top: 1px solid #333;
-            font-size: 0.9rem;
-            color: #888;
+            font-size: 0.8rem;
+            color: #666;
         }
     </style>
 </head>
 <body>
+
+    <div id="bg-text" class="background-text-container"></div>
+
     <header>
         <img src="LOGO1.png" alt="SmartCityPlan Logo" class="logo">
         <h1>SmartCityPlan</h1>
@@ -124,21 +139,20 @@
             <h2>OkosVáros – Fenntartható vízió a jövőért</h2>
             <p>Gondolkoztál már azon, milyen lesz az élet egy folyamatosan növekvő nagyvárosban? Hogyan tehetnénk a környezetünket élhetőbbé az energiapazarlás megállítása és új, alternatív megoldások keresése révén?</p>
             <p>Az <strong>OkosVáros (smartcityplan)</strong> projekt egy olyan egyedi vízió, amely a kinetikus és egyéb energiák urbanisztikai hasznosítására épül. Vízióm egy olyan rendszer kidolgozása, amely nem rombolja, hanem támogatja a környezetünket.</p>
-            <p>Tudjuk, hogy az energiaszektor fenntartása jelenleg az egyik legnagyobb kiadás. Meggyőződésem, hogy ezen költségek jelentős része okosabb technológiákkal csökkenthető, a felszabaduló források pedig további fejlesztésekre fordíthatók.</p>
             <p class="manifesto">A jövőt mi építjük.</p>
         </section>
 
         <section class="cards">
             <div class="card">
-                <img src="zold-energia.jpg" alt="Zöld Energia">
+                <img src="zolditesi-terv.png" alt="Zöld Energia">
                 <div class="card-label">ZÖLD ENERGIA</div>
             </div>
             <div class="card">
-                <img src="okos-megoldasok.jpg" alt="Okos Megoldások">
+                <img src="jelenlegi-allapot.png" alt="Okos Megoldások">
                 <div class="card-label">OKOS MEGOLDÁSOK</div>
             </div>
             <div class="card">
-                <img src="fenntarthato-jovo.jpg" alt="Fenntartható Jövő">
+                <img src="jovokep.png" alt="Fenntartható Jövő">
                 <div class="card-label">FENNTARTHATÓ JÖVŐ</div>
             </div>
         </section>
@@ -147,5 +161,36 @@
     <footer>
         <p>Minden jog fenntartva © 2026 Bertus Erika</p>
     </footer>
+
+    <script>
+        const words = ["SMART CITY", "ZÖLD ENERGIA", "INNOVÁCIÓ", "BUDAPEST", "KINETIKUS", "JÖVŐ", "FENNTARTHATÓ"];
+        const bgContainer = document.getElementById('bg-text');
+
+        function createMovingText() {
+            const span = document.createElement('span');
+            span.innerText = words[Math.floor(Math.random() * words.length)];
+            span.style.position = 'absolute';
+            span.style.color = 'rgba(255, 255, 255, 0.05)';
+            span.style.left = Math.random() * 100 + 'vw';
+            span.style.top = Math.random() * 100 + 'vh';
+            span.style.fontSize = (Math.random() * 2 + 1) + 'rem';
+            span.style.pointerEvents = 'none';
+            span.style.transition = 'all 15s linear';
+            bgContainer.appendChild(span);
+
+            // Indítsuk el a mozgást
+            setTimeout(() => {
+                span.style.left = Math.random() * 100 + 'vw';
+                span.style.top = Math.random() * 100 + 'vh';
+            }, 100);
+
+            // Töröljük a régi szavakat
+            setTimeout(() => { span.remove(); }, 15000);
+        }
+
+        // Több szót generálunk az elején
+        for(let i=0; i<10; i++) { setTimeout(createMovingText, i * 500); }
+        setInterval(createMovingText, 2000);
+    </script>
 </body>
 </html>
