@@ -20,10 +20,12 @@ body {
 
 .background-keywords span { 
     position: absolute; 
-    font-weight: 900; 
-    font-size: 1.8rem; 
-    color: rgba(0, 150, 255, 0.7) !important; /* Erős kék */
-    text-transform: uppercase; 
+    font-weight: 700; /* Kicsit vékonyabb, elegánsabb */
+    font-size: 0.9rem; /* Jóval kisebb méret, hogy ne legyen tolakodó */
+    color: rgba(30, 41, 59, 0.3) !important; /* Antracit szürke, 30%-os láthatósággal */
+    text-transform: uppercase; /* Maradjon csupa nagybetű, mert az hashtag-szerűbb */
+    letter-spacing: 4px;
+    filter: blur(0.5px); /* Enyhe homályosítás a térbeli hatásért */
     animation: spiralFloat infinite linear; 
 }
 
