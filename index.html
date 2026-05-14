@@ -4,11 +4,107 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SmartCityPlan - Mozgásban a jövő</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        /* MINDEN EGYBEN: CSS STÍLUSOK */
+        body {
+            background-color: #1a1a1a;
+            color: #e0e0e0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        header { padding: 40px 20px; }
+
+        .logo {
+            display: block;
+            margin: 0 auto 20px auto;
+            max-width: 180px;
+            height: auto;
+        }
+
+        h1 { font-size: 2.5rem; margin: 0; color: #fff; }
+        header p { color: #00d4ff; font-size: 1.2rem; margin-top: 10px; }
+
+        .video-container {
+            margin: 30px auto;
+            max-width: 700px;
+            width: 90%;
+            box-shadow: 0 0 30px rgba(0,0,0,0.5);
+            border-radius: 12px;
+            overflow: hidden;
+            line-height: 0;
+        }
+
+        .video-container iframe {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            border: none;
+        }
+
+        .description-text {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        .manifesto {
+            font-weight: bold;
+            font-size: 1.4rem;
+            color: #00d4ff;
+            text-align: center;
+            display: block;
+            margin-top: 30px;
+        }
+
+        .cards {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            padding: 40px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            position: relative;
+            width: 280px;
+            height: 380px;
+            border-radius: 15px;
+            overflow: hidden;
+            background-color: #333;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+
+        .card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-label {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            padding: 20px 0;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        footer {
+            padding: 60px 20px;
+            background-color: #111;
+            border-top: 1px solid #333;
+            font-size: 0.9rem;
+            color: #888;
+        }
+    </style>
 </head>
 <body>
-    <div class="background-text" id="bg-text"></div>
-
     <header>
         <img src="LOGO1.png" alt="SmartCityPlan Logo" class="logo">
         <h1>SmartCityPlan</h1>
@@ -17,21 +113,18 @@
 
     <main>
         <section class="video-container">
-            <iframe width="700" height="394" 
-                src="https://www.youtube.com/embed/17yjJXmKXG0?si=gLF-bjXKjO3NKypq" 
+            <iframe src="https://www.youtube.com/embed/17yjJXmKXG0?si=gLF-bjXKjO3NKypq" 
                 title="YouTube video player" frameborder="0" 
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                referrerpolicy="strict-origin-when-cross-origin" 
                 allowfullscreen>
             </iframe>
         </section>
 
         <section class="description-text">
-            <h2>OkosVáros – Fenntartható vízió Budapest és más városok jövőjéért</h2>
+            <h2>OkosVáros – Fenntartható vízió a jövőért</h2>
             <p>Gondolkoztál már azon, milyen lesz az élet egy folyamatosan növekvő nagyvárosban? Hogyan tehetnénk a környezetünket élhetőbbé az energiapazarlás megállítása és új, alternatív megoldások keresése révén?</p>
-            <p>Az <strong>OkosVáros (smartcityplan)</strong> projekt egy olyan egyedi vízió, amely a kinetikus és egyéb energiák urbanisztikai hasznosítására, valamint az intelligens városfejlesztésre épül. Vízióm egy olyan rendszer kidolgozása, amely nem rombolja, hanem támogatja a környezetünket.</p>
-            <p>Tudjuk, hogy az energiaszektor fenntartása jelenleg az egyik legnagyobb kiadás – legyen szó egyéni szintről, cégekről vagy állami szervezetekről. Meggyőződésem, hogy ezen költségek jelentős része okosabb technológiákkal csökkenthető, a felszabaduló források pedig további értékteremtő fejlesztésekre fordíthatók.</p>
-            <p>Magyarország tele van zseniális elmékkel, akik a jövő megoldásain dolgoznak. Azokat a partnereket és gondolkodókat keresem, akik hisznek abban, hogy a technológia, a gazdasági hatékonyság és a fenntarthatóság kéz a kézben járhat.</p>
+            <p>Az <strong>OkosVáros (smartcityplan)</strong> projekt egy olyan egyedi vízió, amely a kinetikus és egyéb energiák urbanisztikai hasznosítására épül. Vízióm egy olyan rendszer kidolgozása, amely nem rombolja, hanem támogatja a környezetünket.</p>
+            <p>Tudjuk, hogy az energiaszektor fenntartása jelenleg az egyik legnagyobb kiadás. Meggyőződésem, hogy ezen költségek jelentős része okosabb technológiákkal csökkenthető, a felszabaduló források pedig további fejlesztésekre fordíthatók.</p>
             <p class="manifesto">A jövőt mi építjük.</p>
         </section>
 
@@ -52,13 +145,7 @@
     </main>
 
     <footer>
-        <div class="legal-notice">
-            <p><strong>SZELLEMI TULAJDONI NYILATKOZAT:</strong></p>
-            <p>Ez a projektterv és a benne bemutatott egyedi városfejlesztési koncepció Bertus Erika kizárólagos szellemi tulajdona.</p>
-            <p>Minden jog fenntartva © 2026 Bertus Erika</p>
-        </div>
+        <p>Minden jog fenntartva © 2026 Bertus Erika</p>
     </footer>
-
-    <script src="script.js"></script>
 </body>
 </html>
