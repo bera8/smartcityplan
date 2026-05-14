@@ -1,0 +1,110 @@
+/* ALAPBEÁLLÍTÁSOK */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { 
+    font-family: 'Urbanist', sans-serif; 
+    background-color: #f8fafc; 
+    color: #1e293b; 
+    overflow-x: hidden; 
+}
+
+/* DDS SPIRÁL SZAVAK - Most már látszani fognak! */
+.background-keywords { 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    z-index: 1; 
+    pointer-events: none; 
+}
+
+.background-keywords span { 
+    position: absolute; 
+    font-weight: 900; 
+    font-size: 1.5rem; 
+    color: rgba(0, 150, 255, 0.45) !important; /* Határozottabb tech-kék */
+    text-transform: uppercase; 
+    animation: spiralFloat infinite linear; 
+}
+
+@keyframes spiralFloat {
+    0% { transform: rotate(0deg) translateX(40px) rotate(0deg) scale(1); opacity: 0.3; }
+    25% { transform: rotate(90deg) translateX(80px) rotate(-90deg) scale(1.2); opacity: 0.7; }
+    50% { transform: rotate(180deg) translateX(40px) rotate(-180deg) scale(1); opacity: 0.3; }
+    75% { transform: rotate(270deg) translateX(100px) rotate(-270deg) scale(0.8); opacity: 0.6; }
+    100% { transform: rotate(360deg) translateX(40px) rotate(-360deg) scale(1); opacity: 0.3; }
+}
+
+/* TARTALOM RÉTEGEZÉSE */
+header, section, footer { 
+    position: relative; 
+    z-index: 2; 
+    background: transparent !important; 
+}
+
+/* HERO SECTION - Javított méret */
+.hero { 
+    height: 50vh; /* Kicsit alacsonyabb, hogy ne foglalja el az egész képernyőt */
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    text-align: center;
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('jovokep.png') center/cover no-repeat !important; 
+}
+
+.hero-content h1 { font-size: 3rem; color: #ffffff; letter-spacing: 5px; }
+.hero-content h1 span { color: #00d4ff; }
+.hero-content p { color: #fff; letter-spacing: 3px; font-weight: 300; }
+
+/* KÁRTYÁK */
+.image-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 30px; 
+    padding: 60px 20px; 
+    max-width: 1100px; 
+    margin: 0 auto; 
+}
+
+.image-card { 
+    height: 350px; 
+    border-radius: 20px; 
+    overflow: hidden; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1); 
+    background: #fff;
+}
+
+.image-card img { width: 100%; height: 100%; object-fit: cover; }
+
+/* VIDEÓ SZEKCIÓ - Letisztult, szürke sávval */
+.video-presentation { 
+    padding: 60px 20px; 
+    text-align: center; 
+    background-color: rgba(241, 245, 249, 0.8) !important; 
+}
+
+.video-title { margin-bottom: 25px; letter-spacing: 4px; font-weight: 700; color: #1e293b; }
+
+.video-wrapper { 
+    max-width: 800px; 
+    margin: 0 auto; 
+    background: #000; 
+    border-radius: 15px; 
+    overflow: hidden; 
+    box-shadow: 0 15px 45px rgba(0,0,0,0.2); 
+}
+
+video { width: 100%; height: auto; display: block; }
+
+/* FOOTER */
+.disclaimer-section { padding: 60px 20px; text-align: center; }
+.disclaimer-box { 
+    max-width: 800px; 
+    margin: 0 auto; 
+    border-top: 1px solid #cbd5e1; 
+    padding-top: 40px; 
+    color: #64748b; 
+    font-size: 0.9rem; 
+}
+
+@media (max-width: 768px) { .background-keywords { display: none; } }
