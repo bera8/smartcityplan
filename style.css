@@ -1,132 +1,119 @@
-/* ALAPBEÁLLÍTÁSOK */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { 
-    font-family: 'Urbanist', sans-serif; 
-    background-color: #f8fafc; 
-    color: #1e293b; 
-    overflow-x: hidden; 
+/* 1. ALAPBEÁLLÍTÁSOK ÉS SÖTÉT TÉMA */
+body {
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    overflow-x: hidden;
 }
 
-/* DDS SPIRÁL SZAVAK - ERŐS ÉS LÁTHATÓ */
-.background-keywords { 
-    position: fixed; 
-    top: 0; 
-    left: 0; 
-    width: 100%; 
-    height: 100%; 
-    z-index: 0; /* Legalul van */
-    pointer-events: none; 
+/* 2. ÚSZÓ HÁTTÉRSZÖVEG (Animált hatás a háttérben) */
+.background-text {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    font-size: 2rem;
+    color: rgba(255, 255, 255, 0.02); /* Nagyon halvány, hogy ne zavarjon */
+    pointer-events: none;
+    white-space: nowrap;
 }
 
-.background-keywords span { 
-    position: absolute; 
-    font-weight: 700; /* Kicsit vékonyabb, elegánsabb */
-    font-size: 0.9rem; /* Jóval kisebb méret, hogy ne legyen tolakodó */
-    color: rgba(30, 41, 59, 0.3) !important; /* Antracit szürke, 30%-os láthatósággal */
-    text-transform: uppercase; /* Maradjon csupa nagybetű, mert az hashtag-szerűbb */
-    letter-spacing: 4px;
-    filter: blur(0.5px); /* Enyhe homályosítás a térbeli hatásért */
-    animation: spiralFloat infinite linear; 
+/* 3. FEJLÉC ÉS LOGÓ */
+header {
+    padding: 60px 20px;
 }
 
-@keyframes spiralFloat {
-    0% { transform: rotate(0deg) translateX(40px) rotate(0deg) scale(1); opacity: 0.3; }
-    25% { transform: rotate(90deg) translateX(100px) rotate(-90deg) scale(1.3); opacity: 0.8; }
-    50% { transform: rotate(180deg) translateX(40px) rotate(-180deg) scale(1); opacity: 0.3; }
-    75% { transform: rotate(270deg) translateX(120px) rotate(-270deg) scale(0.8); opacity: 0.7; }
-    100% { transform: rotate(360deg) translateX(40px) rotate(-360deg) scale(1); opacity: 0.3; }
+.logo {
+    width: 160px; /* Ideális méret a logónak */
+    height: auto;
+    margin-bottom: 20px;
+    transition: transform 0.5s ease;
 }
 
-/* FEJLÉC (HERO) - VISSZAÁLLÍTVA A PROFI STÍLUS */
-.hero { 
-    position: relative;
-    z-index: 10;
-    height: 65vh; 
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
-    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('jovokep.png') center/cover no-repeat; 
+.logo:hover {
+    transform: scale(1.05); /* Enyhe mozgás, ha ráviszik az egeret */
 }
 
-.hero-content { text-align: center; }
-
-.hero-content h1 { 
-    font-size: 4rem; 
-    font-weight: 800;
-    color: #ffffff; 
-    letter-spacing: 8px; 
-    margin-bottom: 10px;
-    text-shadow: 0 4px 15px rgba(0,0,0,0.5);
-}
-
-.hero-content h1 span { color: #00d4ff; }
-
-.hero-content p { 
-    font-size: 1.2rem;
-    color: #ffffff; 
-    letter-spacing: 5px; 
-    font-weight: 400;
-    text-transform: uppercase;
-}
-
-.status-badge {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 10px 25px;
-    border: 2px solid #00d4ff;
+h1 {
+    font-size: 2.8rem;
+    margin: 0;
     color: #ffffff;
-    font-weight: 700;
     letter-spacing: 2px;
-    border-radius: 50px;
-    background: rgba(0, 212, 255, 0.15);
-    backdrop-filter: blur(5px);
 }
 
-/* KÁRTYÁK */
-.image-grid { 
-    position: relative; z-index: 10;
-    display: grid; 
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-    gap: 30px; 
-    padding: 80px 20px; 
-    max-width: 1200px; 
-    margin: 0 auto; 
+header p {
+    font-size: 1.2rem;
+    color: #00d4ff; /* Kék kiemelés a szlogennek */
+    margin-top: 10px;
+    font-weight: 300;
 }
 
-.image-card { 
-    height: 400px; border-radius: 25px; overflow: hidden; 
-    box-shadow: 0 15px 35px rgba(0,0,0,0.1); 
-    transition: transform 0.3s ease;
-}
-.image-card:hover { transform: translateY(-10px); }
-.image-card img { width: 100%; height: 100%; object-fit: cover; }
-
-.card-label {
-    position: absolute; bottom: 20px; left: 20px;
-    background: rgba(0,0,0,0.7); color: #fff;
-    padding: 10px 20px; border-radius: 10px; font-weight: 700;
+/* 4. YOUTUBE VIDEÓ KONTÉNER (700px széles, középen) */
+.video-container {
+    margin: 40px auto;
+    max-width: 700px;
+    width: 90%; /* Mobilon ne lógjon ki */
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.6);
+    border-radius: 12px;
+    overflow: hidden;
+    line-height: 0;
+    border: 1px solid #333;
 }
 
-/* VIDEÓ - YOUTUBE MÉRET */
-.video-presentation { 
-    position: relative; z-index: 10;
-    padding: 80px 20px; text-align: center; 
-    background: rgba(241, 245, 249, 0.5);
+.video-container iframe {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border: none;
 }
 
-.video-title { margin-bottom: 40px; letter-spacing: 5px; font-weight: 800; font-size: 1.8rem; }
-
-.video-wrapper { 
-    max-width: 900px; /* YouTube méret */
-    margin: 0 auto; 
-    background: #000; border-radius: 20px; overflow: hidden; 
-    box-shadow: 0 25px 60px rgba(0,0,0,0.3);
+/* 5. LEÍRÁS SZÖVEG FORMÁZÁSA */
+.description-text {
+    max-width: 800px;
+    margin: 60px auto;
+    padding: 0 25px;
+    line-height: 1.8;
+    text-align: justify;
 }
 
-video { width: 100%; display: block; }
+.description-text h2 {
+    text-align: center;
+    color: #00d4ff;
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+}
 
-/* JOGI NYILATKOZAT */
-.disclaimer-section { position: relative; z-index: 10; padding: 60px 20px; background: #fff; }
-.disclaimer-box { max-width: 900px; margin: 0 auto; border-top: 1px solid #e2e8f0; padding-top: 40px; text-align: center; color: #64748b; font-size: 0.9rem; }
+.description-text p {
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+}
 
-@media (max-width: 768px) { .hero-content h1 { font-size: 2.5rem; } .background-keywords { display: none; } }
+.manifesto {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #00d4ff;
+    text-align: center;
+    margin-top: 40px;
+    font-style: italic;
+    letter-spacing: 1px;
+}
+
+/* 6. KÁRTYÁK - JAVÍTOTT, RÁÚSZÓ FELIRATOKKAL */
+.cards {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 60px 20px;
+    flex-wrap: wrap;
+}
+
+.card {
+    position: relative; /* Kritikus: ez tartja belül a feliratot */
+    width: 280px;
+    height: 380px;
+    border-radius: 15px;
+    overflow: hidden
