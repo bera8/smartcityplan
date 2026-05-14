@@ -1,4 +1,4 @@
-/* ALAPBEÁLLÍTÁSOK - VILÁGOS STÍLUS */
+/* ALAPBEÁLLÍTÁSOK */
 * {
     margin: 0;
     padding: 0;
@@ -7,13 +7,13 @@
 
 body {
     font-family: 'Urbanist', sans-serif;
-    background-color: #f8fafc; /* Világos, tiszta háttér */
-    color: #1e293b; /* Sötétszürke szöveg a könnyű olvashatóságért */
+    background-color: #f8fafc;
+    color: #1e293b;
     line-height: 1.6;
     overflow-x: hidden;
 }
 
-/* FEJLÉC (HERO) SZEKCIÓ - Világosabb áttetszőség */
+/* FEJLÉC (HERO) */
 .hero {
     position: relative;
     height: 60vh;
@@ -21,7 +21,6 @@ body {
     align-items: center;
     justify-content: center;
     text-align: center;
-    /* Csak minimális sötétítés, hogy a fehér betűk még olvashatóak legyenek */
     background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('jovokep.png');
     background-size: cover;
     background-position: center;
@@ -37,7 +36,7 @@ body {
 }
 
 .hero-content h1 span {
-    color: #00d4ff; /* Digitális kék maradt */
+    color: #00d4ff;
 }
 
 .hero-content p {
@@ -60,7 +59,7 @@ body {
     backdrop-filter: blur(5px);
 }
 
-/* KÁRTYA RÁCS (IMAGE GRID) */
+/* KÁRTYA RÁCS */
 .image-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -76,11 +75,11 @@ body {
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: transform 0.4s ease;
 }
 
 .image-card:hover {
-    transform: translateY(-12px);
+    transform: translateY(-10px);
 }
 
 .image-card img {
@@ -103,66 +102,48 @@ body {
     backdrop-filter: blur(5px);
 }
 
-/* VIDEÓ BEMUTATÓ SZEKCIÓ - Finomított méret */
+/* VIDEÓ BEMUTATÓ - Letisztult változat */
 .video-presentation {
-    background-color: #f1f5f9; /* Halványszürke háttér a videó köré */
-    padding: 80px 20px;
+    background-color: transparent;
+    padding: 40px 20px 80px 20px;
     text-align: center;
 }
 
-.video-presentation h2 {
-    color: #1e293b;
-    margin-bottom: 30px;
-    letter-spacing: 4px;
-    font-size: 1.8rem;
-    text-transform: uppercase;
-}
-
 .video-container {
-    max-width: 850px; /* Korlátozott szélesség a jobb láthatóságért */
+    max-width: 850px;
     margin: 0 auto;
-    border: 8px solid #ffffff;
     border-radius: 15px;
     overflow: hidden;
-    background: #000;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    background: transparent;
+    box-shadow: 0 15px 45px rgba(0,0,0,0.12);
 }
 
 video {
     display: block;
     width: 100%;
     height: auto;
-    max-height: 75vh; /* Biztosítja, hogy ne lógjon le a képernyőről */
-    object-fit: contain;
+    max-height: 80vh;
+    background: #000;
+    border-radius: 15px;
 }
 
-.video-desc {
-    color: #64748b;
-    padding: 30px;
-    font-style: italic;
-    font-size: 1rem;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-/* JOGI NYILATKOZAT (FOOTER) */
+/* FOOTER / DISCLAIMER */
 .disclaimer-section {
-    padding: 80px 20px;
+    padding: 60px 20px;
     background-color: #ffffff;
 }
 
 .disclaimer-box {
     max-width: 900px;
     margin: 0 auto;
-    padding: 40px;
+    padding-top: 40px;
     border-top: 1px solid #e2e8f0;
     text-align: center;
 }
 
 .disclaimer-box p {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: #64748b;
-    margin-bottom: 15px;
     line-height: 1.8;
 }
 
@@ -170,9 +151,8 @@ video {
     color: #0f172a;
 }
 
-/* MOBILBARÁT BEÁLLÍTÁSOK */
+/* MOBILBARÁT */
 @media (max-width: 768px) {
     .hero-content h1 { font-size: 2.2rem; }
-    .hero { height: 50vh; }
-    .image-grid { grid-template-columns: 1fr; padding: 20px; }
+    .image-grid { grid-template-columns: 1fr; }
 }
