@@ -5,15 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SmartCityPlan - Mozgásban a jövő</title>
     <style>
+        /* VILÁGOS TÉMA BEÁLLÍTÁSA */
         body {
-            background-color: #1a1a1a;
-            color: #e0e0e0;
+            background-color: #ffffff; /* Tiszta fehér háttér */
+            color: #333333; /* Sötétszürke szöveg a jobb olvashatóságért */
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
             text-align: center;
             overflow-x: hidden;
         }
+
         .background-text-container {
             position: fixed;
             top: 0;
@@ -23,92 +25,118 @@
             z-index: -1;
             pointer-events: none;
         }
-        header { padding: 40px 20px; }
+
+        header { 
+            padding: 50px 20px;
+            background-color: #f8f9fa; /* Halványszürke fejléc elválasztás */
+            border-bottom: 1px solid #eeeeee;
+        }
+
         .logo {
             display: block;
             margin: 0 auto 20px auto;
             max-width: 180px;
             height: auto;
         }
-        h1 { font-size: 2.5rem; margin: 0; color: #fff; letter-spacing: 2px; }
-        header p { color: #00d4ff; font-size: 1.1rem; margin-top: 10px; font-style: italic; }
+
+        h1 { font-size: 2.8rem; margin: 0; color: #0056b3; letter-spacing: 1px; }
+        header p { color: #00a8cc; font-size: 1.2rem; margin-top: 10px; font-weight: 600; }
+
         .video-container {
-            margin: 30px auto;
+            margin: 40px auto;
             max-width: 700px;
             width: 90%;
-            box-shadow: 0 0 40px rgba(0,0,0,0.6);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             border-radius: 15px;
             overflow: hidden;
             line-height: 0;
-            border: 1px solid #333;
+            border: 1px solid #dddddd;
         }
+
         .video-container iframe {
             width: 100%;
             aspect-ratio: 16 / 9;
             border: none;
         }
+
         .description-text {
             max-width: 800px;
             margin: 40px auto;
             padding: 0 25px;
             line-height: 1.8;
             text-align: justify;
+            color: #444444;
         }
+
+        .description-text h2 { color: #0056b3; text-align: center; }
+
         .manifesto {
             font-weight: bold;
             font-size: 1.4rem;
-            color: #00d4ff;
+            color: #00a8cc;
             text-align: center;
             display: block;
             margin-top: 30px;
         }
+
         .cards {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 25px;
             padding: 40px 20px;
             flex-wrap: wrap;
         }
+
         .card {
             position: relative;
             width: 280px;
             height: 350px;
             border-radius: 15px;
             overflow: hidden;
-            background-color: #333;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+            background-color: #f1f1f1;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
         }
+
         .card img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
+
         .card-label {
             position: absolute;
             bottom: 0;
             width: 100%;
-            background: rgba(0, 0, 0, 0.85);
-            color: #fff;
+            background: rgba(255, 255, 255, 0.9); /* Világos felirat sáv */
+            color: #0056b3;
             padding: 15px 0;
             font-weight: bold;
             font-size: 1rem;
+            border-top: 1px solid #eee;
         }
+
+        .card:hover { transform: translateY(-10px); }
+
         footer {
             padding: 60px 20px;
-            background-color: #111;
-            border-top: 1px solid #333;
-            font-size: 0.8rem;
-            color: #666;
+            background-color: #f8f9fa;
+            border-top: 1px solid #eeeeee;
+            font-size: 0.85rem;
+            color: #777;
         }
     </style>
 </head>
 <body>
+
     <div id="bg-text" class="background-text-container"></div>
+
     <header>
         <img src="LOGO1.png" alt="SmartCityPlan Logo" class="logo">
         <h1>SmartCityPlan</h1>
         <p>Mozgásban a jövő</p>
     </header>
+
     <main>
         <section class="video-container">
             <iframe src="https://www.youtube.com/embed/17yjJXmKXG0?si=gLF-bjXKjO3NKypq" 
@@ -117,12 +145,14 @@
                 allowfullscreen>
             </iframe>
         </section>
+
         <section class="description-text">
             <h2>OkosVáros – Fenntartható vízió a jövőért</h2>
             <p>Gondolkoztál már azon, milyen lesz az élet egy folyamatosan növekvő nagyvárosban? Hogyan tehetnénk a környezetünket élhetőbbé az energiapazarlás megállítása és új, alternatív megoldások keresése révén?</p>
             <p>Az <strong>OkosVáros (smartcityplan)</strong> projekt egy olyan egyedi vízió, amely a kinetikus és egyéb energiák urbanisztikai hasznosítására épül.</p>
             <p class="manifesto">A jövőt mi építjük.</p>
         </section>
+
         <section class="cards">
             <div class="card">
                 <img src="zolditesi-terv.png" alt="Zöld Energia">
@@ -138,30 +168,35 @@
             </div>
         </section>
     </main>
+
     <footer>
         <p>Minden jog fenntartva © 2026 Bertus Erika</p>
     </footer>
+
     <script>
         const words = ["SMART CITY", "ZÖLD ENERGIA", "INNOVÁCIÓ", "BUDAPEST", "KINETIKUS", "JÖVŐ", "FENNTARTHATÓ"];
         const bgContainer = document.getElementById('bg-text');
+
         function createMovingText() {
             const span = document.createElement('span');
             span.innerText = words[Math.floor(Math.random() * words.length)];
             span.style.position = 'absolute';
-            span.style.color = 'rgba(255, 255, 255, 0.08)';
+            span.style.color = 'rgba(0, 86, 179, 0.05)'; /* Világoskék, alig látható szavak */
             span.style.left = Math.random() * 100 + 'vw';
             span.style.top = Math.random() * 100 + 'vh';
             span.style.fontSize = (Math.random() * 2 + 1) + 'rem';
             span.style.pointerEvents = 'none';
-            span.style.transition = 'all 18s linear';
+            span.style.transition = 'all 20s linear';
             bgContainer.appendChild(span);
+
             setTimeout(() => {
                 span.style.left = Math.random() * 100 + 'vw';
                 span.style.top = Math.random() * 100 + 'vh';
             }, 100);
-            setTimeout(() => { span.remove(); }, 18000);
+
+            setTimeout(() => { span.remove(); }, 20000);
         }
-        setInterval(createMovingText, 2000);
+        setInterval(createMovingText, 2500);
     </script>
 </body>
 </html>
