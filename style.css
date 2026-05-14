@@ -238,4 +238,29 @@ body {
 .footer-note {
   font-weight: bold;
   letter-spacing: 1px;
+}/* --- Nyilatkozat stílusa --- */
+.disclaimer-section {
+    padding: 60px 20px;
+    background: rgba(0, 0, 0, 0.3); /* Enyhén sötétebb háttér, hogy elkülönüljön */
+    border-top: 1px solid rgba(0, 163, 255, 0.1);
+    margin-top: 40px;
+}
+
+.disclaimer-box {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 0.85rem; /* Kicsit kisebb betűk, hogy ne legyen tolakodó */
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.5); /* Halványabb szürke/fehér */
+    text-align: center;
+    font-style: italic;
+}
+
+.disclaimer-box strong {
+    color: #00a3ff; /* A kék színed, hogy a cím kiemelkedjen */
+    font-style: normal;
+    display: block;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
