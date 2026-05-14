@@ -3,87 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OkosVáros - Budapest Jövője</title>
+    <title>Smart Budapest - Kinetikus Energia Koncepció</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <div class="container">
-        <header class="header">
-            <div class="logo">OKOS<strong>VÁROS</strong>.EU</div>
+    <header class="hero">
+        <div class="video-overlay"></div>
+        <div class="hero-content">
+            <h1>OKOSVÁROS<span>.EU</span></h1>
+            <p>A JÖVŐ MOZGÁSBAN</p>
             <div class="status-badge">TERVEZÉSI FÁZIS</div>
-        </header>
-
-        <div class="network-wrap">
-            <video autoplay loop muted playsinline preload="auto" class="plexus-anim">
-                <source src="plexus.mp4" type="video/mp4">
-            </video>
         </div>
+    </header>
 
-        <section class="image-grid">
-            <div class="image-card">
-                <img src="jovokep.png" alt="Jövőkép">
-                <div class="card-label">JÖVŐKÉP</div>
-            </div>
-            <div class="image-card">
-                <img src="jelenlegi-allapot.png" alt="Jelenlegi állapot">
-                <div class="card-label">JELENLEGI ÁLLAPOT</div>
-            </div>
-            <div class="image-card">
-                <img src="zolditesi-terv.png" alt="Zöldítési terv">
-                <div class="card-label">ZÖLDÍTÉSI TERV</div>
-            </div>
-        </section>
+    <section class="image-grid">
+        <div class="image-card">
+            <img src="jovokep.png" alt="Jövőkép">
+            <div class="card-label">JÖVŐKÉP</div>
+        </div>
+        <div class="image-card">
+            <img src="jelenlegi-allapot.png" alt="Városi dinamika">
+            <div class="card-label">VÁROSI DINAMIKA</div>
+        </div>
+        <div class="image-card">
+            <img src="zolditesi-terv.png" alt="Zöld energia">
+            <div class="card-label">ZÖLD ENERGIA</div>
+        </div>
+    </section>
 
-        <main class="main-content">
-            <div class="vision-card">
-                <div class="vision-icon">⚡</div>
-                <p>A jövő városa épül. Intelligens közlekedés, zöld infrastruktúra és digitális hálózatok – egy élhetőbb, fenntarthatóbb Budapest felé.</p>
-            </div>
+    <section class="video-presentation">
+        <div class="video-container">
+            <h2>PROJEKTBEMUTATÓ</h2>
+            <video controls width="100%" poster="jovokep.png">
+                <source src="plexus.mp4" type="video/mp4">
+                A böngésződ nem támogatja a videó lejátszását.
+            </video>
+            <p class="video-desc">Nézze meg koncepciónkat működés közben: az emberi mozgásból születő tiszta energia.</p>
+        </div>
+    </section>
 
-            <div class="progress-container">
-                <div class="progress-header">
-                    <span>OLDAL ELŐKÉSZÍTÉSE</span>
-                    <span>100%</span>
-                </div>
-                <div class="progress-bar">
-                    <div class="progress-fill"></div>
-                </div>
-            </div>
-        </main>
-
-        <section class="contact-section">
-            <div class="contact-item">
-                <div class="contact-icon">👤</div>
-                <div>
-                    <span class="label">KAPCSOLAT</span>
-                    <div class="value">Bertus Erika</div>
-                </div>
-            </div>
-            <div class="contact-divider"></div>
-            <div class="contact-item">
-                <div class="contact-icon">📞</div>
-                <div>
-                    <div class="value" style="font-size: 1.5rem; font-weight: 700;">+36 70 369 5107</div>
-                </div>
-            </div>
-        </section>
-
-        <section class="disclaimer-section">
-            <div class="disclaimer-box">
-                <p><strong>Szakmai nyilatkozat:</strong> Ez a weboldal egy egyéni projektterv bemutatására szolgál, amely elsőként Budapest, a későbbiekben pedig további európai nagyvárosok számára kínál fejlesztési koncepciót. A projekt teljes egészében saját szellemi tulajdon. A szerző a projekt kidolgozása során sem gazdasági társaságokkal, sem önkormányzati szervekkel (köztük Budapest Főváros Önkormányzatával) nem áll semmilyen hivatalos kapcsolatban vagy együttműködésben.</p>
-            </div>
-        </section>
-
-        <footer class="footer">
-            <div class="footer-links">
-                <span>🌐 okosvaros.eu</span>
-                <span>🌐 smartcityplan.eu</span>
-            </div>
-            <div class="footer-note">HAMAROSAN &mdash; KÖSZÖNJÜK TÜRELMÉT!</div>
-        </footer>
-    </div>
+    <footer class="disclaimer-section">
+        <div class="disclaimer-box">
+            <p><strong>SZELLEMI TULAJDONI NYILATKOZAT:</strong></p>
+            <p>Ez a <strong>projektterv</strong> és a benne bemutatott <strong>egyedi városfejlesztési koncepció</strong> – amely a kinetikus energia urbanisztikai hasznosítására épül – <strong>Bertus Erika kizárólagos szellemi tulajdona</strong>. A koncepció vizuális megjelenítése, technológiai integrációs terve és hálózati logikája jogvédett. A projekt független kezdeményezés, nem áll hivatalos kapcsolatban állami vagy önkormányzati szervekkel. <strong>© 2024 Minden jog fenntartva.</strong></p>
+        </div>
+    </footer>
 
 </body>
 </html>
