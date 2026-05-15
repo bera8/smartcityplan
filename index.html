@@ -5,13 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SmartCityPlan - Mozgásban a jövő</title>
     <style>
-        /* 1. BETŰTÍPUS ÉS ALAPOK - Visszaállított profi stílus */
         body {
             background-color: #ffffff;
             color: #333333;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0; padding: 0;
             text-align: center;
             overflow-x: hidden;
         }
@@ -19,17 +17,15 @@
         .background-text-container {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            z-index: -1;
-            pointer-events: none;
+            z-index: -1; pointer-events: none;
         }
 
-        /* 1. PONT: SmartCityPlan betűtípusa és stílusa a főképnél */
+        /* FEJLÉC - okosvaros.eu stílus */
         .hero-section {
             position: relative;
             width: 100%;
-            height: 75vh;
-            min-height: 500px;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('jovokep.png'); 
+            height: 60vh;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('jovokep.png'); 
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -38,122 +34,89 @@
             justify-content: center;
             align-items: center;
             color: white;
-            margin-bottom: 40px;
         }
 
-        .hero-section h1 {
-            font-size: 5rem; /* Nagyobb, erőteljesebb felirat */
-            margin: 0;
-            text-shadow: 0px 5px 25px rgba(0,0,0,0.9);
-            letter-spacing: 2px;
-            font-weight: 900; /* Extra vastag */
-            font-family: 'Arial Black', sans-serif; /* Markánsabb betűtípus */
-        }
-
-        .hero-section p {
-            font-size: 2.2rem;
-            font-style: italic;
-            text-shadow: 0px 2px 10px rgba(0,0,0,0.8);
-            margin-top: 15px;
+        .brand-name {
+            font-size: 3.5rem;
             font-weight: 300;
+            letter-spacing: 2px;
+            margin: 0;
+        }
+        .brand-blue { color: #00a8cc; font-weight: 500; }
+
+        .hero-capsule {
+            margin-top: 20px;
+            padding: 8px 25px;
+            border: 1px solid #00ffcc;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            color: #00ffcc;
+            background: rgba(0, 0, 0, 0.2);
         }
 
-        .small-logo {
-            width: 120px;
-            height: auto;
-            margin-bottom: 25px;
-            filter: drop-shadow(0px 4px 12px rgba(0,0,0,0.6));
-        }
-
-        /* 2. PONT: Kártyák fekete felirattal és ikonokkal a képen */
+        /* KÁRTYÁK - Fekete gomb stílusú feliratokkal */
         .cards {
             display: flex;
             justify-content: center;
-            gap: 30px;
-            padding: 20px;
+            gap: 25px;
+            padding: 50px 20px;
             flex-wrap: wrap;
-            margin-bottom: 50px;
         }
 
         .card {
             position: relative;
-            width: 320px;
-            height: 420px;
-            border-radius: 20px;
+            width: 300px;
+            height: 400px;
+            border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.4s ease;
+            cursor: pointer;
         }
+
+        .card:hover { transform: translateY(-15px); }
 
         .card img { width: 100%; height: 100%; object-fit: cover; }
 
-        .card-label {
+        /* AZ EREDETI FEKETE BLOKK FELIRAT */
+        .card-label-black {
             position: absolute;
-            bottom: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.85); /* Áttetsző fehér háttér */
-            color: #000000; /* Fekete betűk */
-            padding: 25px 0;
-            font-weight: 900;
-            font-size: 1.3rem;
+            bottom: 20px;
+            left: 20px;
+            background: #000000; /* Tiszta fekete, nem arany */
+            color: #ffffff;
+            padding: 10px 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
             text-transform: uppercase;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
+            border-radius: 4px;
         }
 
-        /* 3. PONT ÉS VIDEÓ STÍLUS */
-        .video-container {
-            margin: 0 auto 40px auto;
+        /* JOGI NYILATKOZAT KÉPPEL */
+        .legal-section {
+            position: relative;
+            padding: 80px 20px;
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('image_33a201.png'); /* A Budapest sziluett kép */
+            background-size: cover;
+            background-position: bottom;
+            color: #eeeeee;
+            border-top: 3px solid #00a8cc;
+        }
+
+        .legal-content {
             max-width: 850px;
-            width: 90%;
-            border-radius: 25px;
-            overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.25);
-        }
-
-        .video-container iframe {
-            width: 100%;
-            aspect-ratio: 16 / 9;
-            border: none;
-        }
-
-        .description-text {
-            max-width: 850px;
-            margin: 40px auto;
-            padding: 0 35px;
-            text-align: justify;
-            line-height: 1.9;
-            font-size: 1.25rem;
-            color: #333;
-        }
-
-        .manifesto {
-            font-weight: 900;
-            font-size: 1.5rem;
-            color: #00a8cc;
-            text-align: center;
-            display: block;
-            margin-top: 40px;
-        }
-
-        /* 4. PONT: Részletes jogvédelmi nyilatkozat */
-        footer {
-            padding: 80px 40px;
-            background: #f8f9fa;
-            border-top: 1px solid #eee;
-            color: #555;
-            font-size: 0.95rem;
-            text-align: center;
-        }
-
-        .legal-notice {
-            max-width: 900px;
             margin: 0 auto;
             line-height: 1.7;
         }
 
-        .legal-notice h3 { color: #333; margin-bottom: 20px; }
+        .main-content { max-width: 900px; margin: 0 auto; padding: 40px 20px; text-align: justify; }
+        .video-container {
+            width: 100%;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+        }
     </style>
 </head>
 <body>
@@ -161,61 +124,68 @@
     <div id="bg-text" class="background-text-container"></div>
 
     <header class="hero-section">
-        <img src="LOGO1.png" alt="Logo" class="small-logo">
-        <h1>SmartCityPlan</h1>
-        <p>Mozgásban a jövő</p>
+        <img src="LOGO1.png" alt="Logo" style="width: 80px; margin-bottom: 10px;">
+        <h1 class="brand-name">okos<span class="brand-blue">varos</span>.eu</h1>
+        <div class="hero-capsule">mozgásban a jövő</div>
     </header>
 
     <main>
         <section class="cards">
             <div class="card">
                 <img src="zolditesi-terv.png" alt="Zöld Energia">
-                <div class="card-label">🍃 ZÖLD ENERGIA</div>
+                <div class="card-label-black">Zöld Energia</div>
             </div>
             <div class="card">
                 <img src="jelenlegi-allapot.png" alt="Okos Megoldások">
-                <div class="card-label">📊 OKOS MEGOLDÁSOK</div>
+                <div class="card-label-black">Okos Megoldások</div>
             </div>
             <div class="card">
                 <img src="jovokep.png" alt="Fenntartható Jövő">
-                <div class="card-label">👁️ FENNTARTHATÓ JÖVŐ</div>
+                <div class="card-label-black">Fenntartható Jövő</div>
             </div>
         </section>
 
-        <section class="video-container">
-            <iframe src="https://www.youtube.com/embed/17yjJXmKXG0" allowfullscreen></iframe>
-        </section>
-
-        <section class="description-text">
-            <h2>OkosVáros – Fenntartható vízió Budapest és más városok jövőjéért</h2>
-            <p>Gondolkoztál már azon, milyen lesz az élet egy folyamatosan növekvő nagyvárosban? Hogyan tehetnénk a környezetünket élhetőbbé az energiapazarlás megállítása és új, alternatív megoldások keresése révén?</p>
-            <p>Az <strong>OkosVáros (smartcityplan)</strong> projekt egy olyan egyedi vízió, amely a kinetikus és egyéb energiák urbanisztikai hasznosítására, valamint az intelligens városfejlesztésre épül. Vízióm egy olyan rendszer kidolgozása, amely nem rombolja, hanem támogatja a környezetünket.</p>
-            <p>Tudjuk, hogy az energiaszektor fenntartása jelenleg az egyik legnagyobb kiadás – legyen szó egyéni szintről, cégekről vagy állami szervezetekről. Meggyőződésem, hogy ezen költségek jelentős része okosabb technológiákkal csökkenthető, a felszabaduló források pedig további értékteremtő fejlesztésekre fordíthatók.</p>
-            <p>Magyarország tele van zseniális elmékkel, akik a jövő megoldásain dolgoznak. Azokat a partnereket és gondolkodókat keresem, akik hisznek abban, hogy a technológia, a gazdasági hatékonyság és a fenntarthatóság kéz a kézben járhat.</p>
-            <span class="manifesto">A jövőt mi építjük.</span>
+        <section class="main-content">
+            <div class="video-container">
+                <iframe width="100%" height="450" src="https://www.youtube.com/embed/17yjJXmKXG0" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div class="description-text">
+                <p>Gondolkoztál már azon, milyen lesz az élet egy folyamatosan növekvő nagyvárosban? Hogyan tehetnénk a környezetünket élhetőbbé az energiapazarlás megállítása és új, alternatív megoldások keresése révén?</p>
+                <p>Az <strong>OkosVáros (smartcityplan)</strong> projekt egy olyan egyedi vízió, amely a kinetikus és egyéb energiák urbanisztikai hasznosítására épül.</p>
+                <p style="text-align: center; color: #00a8cc; font-weight: bold; font-size: 1.4rem; margin-top: 30px;">A jövőt mi építjük.</p>
+            </div>
         </section>
     </main>
 
-    <footer>
-        <div class="legal-notice">
-            <h3>SZELLEMI TULAJDONI ÉS JOGI NYILATKOZAT</h3>
-            <p>Ez a projektterv és a benne bemutatott egyedi városfejlesztési koncepció – amely a kinetikus energia urbanisztikai hasznosítására épül – Bertus Erika kizárólagos szellemi tulajdona. A koncepció vizuális megjelenítése, technológiai integrációs terve és hálózati logikája jogvédett.</p>
-            <p><strong>Függetlenségi nyilatkozat:</strong> Kijelentem, hogy a SmartCityPlan projekt egy független magánkezdeményezés. Nem állok szerződéses vagy hivatalos képviseleti kapcsolatban Budapest Főváros Önkormányzatával, kerületi önkormányzatokkal, sem állami közműszolgáltatókkal vagy politikai szervezetekkel.</p>
-            <p>Minden jog fenntartva © 2026 Bertus Erika</p>
+    <footer class="legal-section">
+        <div class="legal-content">
+            <p><strong>SZELLEMI TULAJDONI ÉS JOGI NYILATKOZAT</strong></p>
+            <p>Ez a projektterv és a benne bemutatott egyedi városfejlesztési koncepció Bertus Erika kizárólagos szellemi tulajdona. A vizuális megjelenítés és a technológiai integrációs terv jogvédett.</p>
+            <p><strong>Függetlenségi nyilatkozat:</strong> A SmartCityPlan projekt egy független magánkezdeményezés. Nem állok szerződéses vagy hivatalos képviseleti kapcsolatban Budapest Főváros Önkormányzatával, sem állami közműszolgáltatókkal.</p>
+            <p style="margin-top: 30px; opacity: 0.7;">Minden jog fenntartva © 2026 Bertus Erika</p>
         </div>
     </footer>
 
     <script>
-        const words = ["SMART CITY", "ZÖLD ENERGIA", "INNOVÁCIÓ", "BUDAPEST", "FENNTARTHATÓ", "KINETIKUS"];
+        const words = ["SMART CITY", "ZÖLD ENERGIA", "INNOVÁCIÓ", "BUDAPEST", "FENNTARTHATÓ"];
         const bgContainer = document.getElementById('bg-text');
-
         function createMovingText() {
             const span = document.createElement('span');
             span.innerText = words[Math.floor(Math.random() * words.length)];
             span.style.position = 'absolute';
-            span.style.color = 'rgba(0, 86, 179, 0.15)'; 
+            span.style.color = 'rgba(0, 168, 204, 0.1)'; 
             span.style.left = Math.random() * 100 + 'vw';
             span.style.top = Math.random() * 100 + 'vh';
             span.style.fontSize = (Math.random() * 1.5 + 1) + 'rem';
-            span.style.transition = 'all 22s linear';
+            span.style.transition = 'all 25s linear';
             bgContainer.appendChild(span);
+            setTimeout(() => {
+                span.style.left = Math.random() * 100 + 'vw';
+                span.style.top = Math.random() * 100 + 'vh';
+            }, 100);
+            setTimeout(() => { span.remove(); }, 25000);
+        }
+        setInterval(createMovingText, 3000);
+    </script>
+</body>
+</html>
