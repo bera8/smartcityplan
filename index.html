@@ -100,7 +100,7 @@
             margin-bottom: 40px;
         }
 
-        /* JOGI NYILATKOZAT KÉPPEL */
+        /* DISCLAIMER SZEKCIÓ */
         .legal-section {
             position: relative;
             padding: 80px 20px;
@@ -115,6 +115,13 @@
             max-width: 850px;
             margin: 0 auto;
             line-height: 1.8;
+        }
+
+        .copyright-line {
+            margin-top: 30px;
+            color: #d4af37; /* Arany szín */
+            font-weight: bold;
+            letter-spacing: 1px;
         }
     </style>
 </head>
@@ -159,9 +166,9 @@
     <footer class="legal-section">
         <div class="legal-content">
             <p><strong>SZELLEMI TULAJDONI ÉS JOGI NYILATKOZAT</strong></p>
-            <p>Ez a projektterv és a benne bemutatott egyedi városfejlesztési koncepció Bertus Erika kizárólagos szellemi tulajdona. <br>A vizuális megjelenítés és a technológiai integrációs terv jogvédett.</p>
-            <p><strong>Függetlenségi nyilatkozat:</strong> A SmartCityPlan projekt egy független magánkezdeményezés. Nem állok szerződéses vagy hivatalos képviseleti kapcsolatban Budapest Főváros Önkormányzatával, sem állami közműszolgáltatókkal.</p>
-            <p style="margin-top: 30px; opacity: 0.7;">Minden jog fenntartva © 2026 Bertus Erika</p>
+            <p>Ez a projektterv és a benne bemutatott egyedi városfejlesztési koncepció Bertus Erika kizárólagos szellemi tulajdona.<br>A vizuális megjelenítés és a technológiai integrációs terv jogvédett.</p>
+            <p><strong>Disclaimer / Függetlenségi nyilatkozat:</strong> A SmartCityPlan projekt egy független magánkezdeményezés. Nem állok szerződéses vagy hivatalos képviseleti kapcsolatban Budapest Főváros Önkormányzatával, kerületi önkormányzatokkal, sem állami közműszolgáltatókkal.</p>
+            <p class="copyright-line">Minden jog fenntartva © 2026 Bertus Erika</p>
         </div>
     </footer>
 
@@ -173,12 +180,16 @@
             const span = document.createElement('span');
             span.innerText = words[Math.floor(Math.random() * words.length)];
             span.style.position = 'absolute';
-            // Megemelt opacity (0.15), hogy jobban látsszon
-            span.style.color = 'rgba(0, 168, 204, 0.15)'; 
+            
+            // ÚJ: Korallzöld-kék szín (Türkizkék alap)
+            span.style.color = 'rgba(0, 255, 204, 0.22)'; 
+            
             span.style.left = Math.random() * 100 + 'vw';
             span.style.top = Math.random() * 100 + 'vh';
             span.style.fontSize = (Math.random() * 1.5 + 1) + 'rem';
-            span.style.transition = 'all 25s linear';
+            
+            // GYORSABB MOZGÁS: 25mp helyett 18mp
+            span.style.transition = 'all 18s linear'; 
             bgContainer.appendChild(span);
             
             setTimeout(() => {
@@ -186,9 +197,11 @@
                 span.style.top = Math.random() * 100 + 'vh';
             }, 100);
             
-            setTimeout(() => { span.remove(); }, 25000);
+            setTimeout(() => { span.remove(); }, 18000);
         }
-        setInterval(createMovingText, 3000);
+        
+        // Gyakrabban is generálunk: 3mp helyett 2mp
+        setInterval(createMovingText, 2000);
     </script>
 </body>
 </html>
