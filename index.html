@@ -5,22 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SmartCityPlan - Mozgásban a jövő</title>
     <style>
+        /* 1. ALAPOK ÉS BETŰTÍPUS */
         body {
             background-color: #ffffff;
             color: #333333;
-            font-family: 'Segoe UI', Arial, sans-serif;
-            margin: 0; padding: 0;
+            font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
             text-align: center;
             overflow-x: hidden;
         }
 
+        /* MOZGÓ SZAVAK KONTEJNERE */
         .background-text-container {
             position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            z-index: -1; pointer-events: none;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
         }
 
-        /* FEJLÉC */
+        /* 2. FEJLÉC (HERO SECTION) */
         .hero-section {
             position: relative;
             width: 100%;
@@ -41,8 +48,13 @@
             font-weight: 300;
             letter-spacing: 2px;
             margin: 0;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
         }
-        .brand-blue { color: #00a8cc; font-weight: 500; }
+
+        .brand-blue {
+            color: #00a8cc;
+            font-weight: 500;
+        }
 
         .hero-capsule {
             margin-top: 20px;
@@ -52,14 +64,16 @@
             font-size: 1.1rem;
             color: #00ffcc;
             background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(5px);
+            font-style: italic;
         }
 
-        /* KÁRTYÁK */
+        /* 3. INTERAKTÍV KÁRTYÁK */
         .cards {
             display: flex;
             justify-content: center;
             gap: 25px;
-            padding: 50px 20px;
+            padding: 60px 20px;
             flex-wrap: wrap;
         }
 
@@ -70,12 +84,20 @@
             border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: transform 0.4s ease;
+            transition: all 0.4s ease;
             cursor: pointer;
         }
 
-        .card:hover { transform: translateY(-15px); }
-        .card img { width: 100%; height: 100%; object-fit: cover; }
+        .card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        .card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
 
         .card-label-black {
             position: absolute;
@@ -90,8 +112,14 @@
             border-radius: 4px;
         }
 
-        /* TARTALOM */
-        .main-content { max-width: 900px; margin: 0 auto; padding: 40px 20px; text-align: justify; }
+        /* 4. TARTALMI RÉSZ ÉS VIDEÓ */
+        .main-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            text-align: justify;
+        }
+
         .video-container {
             width: 100%;
             border-radius: 15px;
@@ -100,28 +128,50 @@
             margin-bottom: 40px;
         }
 
-        /* DISCLAIMER SZEKCIÓ */
+        .video-container iframe {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            border: none;
+        }
+
+        .description-text {
+            line-height: 1.8;
+            font-size: 1.15rem;
+            color: #444;
+        }
+
+        .manifesto-text {
+            text-align: center;
+            color: #00a8cc;
+            font-weight: bold;
+            font-size: 1.4rem;
+            margin-top: 30px;
+        }
+
+        /* 5. VÉGLEGES LÁBLÉC (KÉP ALAPÚ DISCLAIMER) */
         .legal-section {
             position: relative;
-            padding: 80px 20px;
-            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('image_33a201.png'); 
-            background-size: cover;
-            background-position: bottom;
-            color: #eeeeee;
+            width: 100%;
+            height: 500px;
+            background-image: url('image_33a201.png');
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: #000000;
             border-top: 3px solid #00a8cc;
         }
 
-        .legal-content {
-            max-width: 850px;
-            margin: 0 auto;
-            line-height: 1.8;
-        }
-
-        .copyright-line {
-            margin-top: 30px;
-            color: #d4af37; /* Arany szín */
-            font-weight: bold;
-            letter-spacing: 1px;
+        /* MOBILOS FINOMHANGOLÁS */
+        @media (max-width: 768px) {
+            .legal-section {
+                height: 300px;
+            }
+            .brand-name {
+                font-size: 2.2rem;
+            }
+            .hero-section {
+                height: 50vh;
+            }
         }
     </style>
 </head>
@@ -153,24 +203,18 @@
 
         <section class="main-content">
             <div class="video-container">
-                <iframe width="100%" height="450" src="https://www.youtube.com/embed/17yjJXmKXG0" frameborder="0" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/17yjJXmKXG0" allowfullscreen></iframe>
             </div>
             <div class="description-text">
                 <p>Gondolkoztál már azon, milyen lesz az élet egy folyamatosan növekvő nagyvárosban? Hogyan tehetnénk a környezetünket élhetőbbé az energiapazarlás megállítása és új, alternatív megoldások keresése révén?</p>
-                <p>Az <strong>OkosVáros (smartcityplan)</strong> projekt egy olyan egyedi vízió, amely a kinetikus és egyéb energiák urbanisztikai hasznosítására épül.</p>
-                <p style="text-align: center; color: #00a8cc; font-weight: bold; font-size: 1.4rem; margin-top: 30px;">A jövőt mi építjük.</p>
+                <p>Az <strong>OkosVáros (smartcityplan)</strong> projekt egy olyan egyedi vízió, amely a kinetikus és egyéb energiák urbanisztikai hasznosítására épül. Tudjuk, hogy az energiaszektor fenntartása az egyik legnagyobb kiadás, és meggyőződésem, hogy ez okos technológiákkal csökkenthető.</p>
+                <p>Magyarország tele van zseniális elmékkel. Azokat a partnereket és gondolkodókat keresem, akik hisznek abban, hogy a technológia és a fenntarthatóság kéz a kézben járhat.</p>
+                <p class="manifesto-text">A jövőt mi építjük.</p>
             </div>
         </section>
     </main>
 
-    <footer class="legal-section">
-        <div class="legal-content">
-            <p><strong>SZELLEMI TULAJDONI ÉS JOGI NYILATKOZAT</strong></p>
-            <p>Ez a projektterv és a benne bemutatott egyedi városfejlesztési koncepció Bertus Erika kizárólagos szellemi tulajdona.<br>A vizuális megjelenítés és a technológiai integrációs terv jogvédett.</p>
-            <p><strong>Disclaimer / Függetlenségi nyilatkozat:</strong> A SmartCityPlan projekt egy független magánkezdeményezés. Nem állok szerződéses vagy hivatalos képviseleti kapcsolatban Budapest Főváros Önkormányzatával, kerületi önkormányzatokkal, sem állami közműszolgáltatókkal.</p>
-            <p class="copyright-line">Minden jog fenntartva © 2026 Bertus Erika</p>
-        </div>
-    </footer>
+    <footer class="legal-section"></footer>
 
     <script>
         const words = ["SMART CITY", "ZÖLD ENERGIA", "INNOVÁCIÓ", "BUDAPEST", "FENNTARTHATÓ"];
@@ -181,14 +225,14 @@
             span.innerText = words[Math.floor(Math.random() * words.length)];
             span.style.position = 'absolute';
             
-            // ÚJ: Korallzöld-kék szín (Türkizkék alap)
+            // Korallzöld-kék szín (Türkizkék alap)
             span.style.color = 'rgba(0, 255, 204, 0.22)'; 
             
             span.style.left = Math.random() * 100 + 'vw';
             span.style.top = Math.random() * 100 + 'vh';
             span.style.fontSize = (Math.random() * 1.5 + 1) + 'rem';
             
-            // GYORSABB MOZGÁS: 25mp helyett 18mp
+            // Mozgási sebesség
             span.style.transition = 'all 18s linear'; 
             bgContainer.appendChild(span);
             
@@ -200,7 +244,7 @@
             setTimeout(() => { span.remove(); }, 18000);
         }
         
-        // Gyakrabban is generálunk: 3mp helyett 2mp
+        // Szavak generálása 2 másodpercenként
         setInterval(createMovingText, 2000);
     </script>
 </body>
