@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SmartCityPlan - Mozgásban a jövő</title>
     <style>
-        /* 1. ALAPOK ÉS BETŰTÍPUS */
+        /* 1. ALAPOK ÉS RÉTEGKEZELÉS */
         body {
             background-color: #ffffff;
             color: #333333;
@@ -16,20 +16,24 @@
             overflow-x: hidden;
         }
 
-        /* MOZGÓ SZAVAK KONTEJNERE */
+        /* MOZGÓ SZAVAK - Javított láthatóság */
         .background-text-container {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: -1;
+            z-index: 0; /* A fehér háttér előtt, de a tartalom mögött */
             pointer-events: none;
+        }
+
+        header, main {
+            position: relative;
+            z-index: 2; /* Ez emeli a tartalmat a mozgó szavak fölé */
         }
 
         /* 2. FEJLÉC (HERO SECTION) */
         .hero-section {
-            position: relative;
             width: 100%;
             height: 60vh;
             background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('jovokep.png'); 
@@ -51,10 +55,7 @@
             text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
         }
 
-        .brand-blue {
-            color: #00a8cc;
-            font-weight: 500;
-        }
+        .brand-blue { color: #00a8cc; font-weight: 500; }
 
         .hero-capsule {
             margin-top: 20px;
@@ -93,11 +94,7 @@
             box-shadow: 0 20px 40px rgba(0,0,0,0.2);
         }
 
-        .card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+        .card img { width: 100%; height: 100%; object-fit: cover; }
 
         .card-label-black {
             position: absolute;
@@ -112,7 +109,7 @@
             border-radius: 4px;
         }
 
-        /* 4. TARTALMI RÉSZ ÉS VIDEÓ */
+        /* 4. TARTALOM ÉS VIDEÓ */
         .main-content {
             max-width: 900px;
             margin: 0 auto;
@@ -128,17 +125,9 @@
             margin-bottom: 40px;
         }
 
-        .video-container iframe {
-            width: 100%;
-            aspect-ratio: 16 / 9;
-            border: none;
-        }
+        .video-container iframe { width: 100%; aspect-ratio: 16 / 9; border: none; }
 
-        .description-text {
-            line-height: 1.8;
-            font-size: 1.15rem;
-            color: #444;
-        }
+        .description-text { line-height: 1.8; font-size: 1.15rem; color: #444; }
 
         .manifesto-text {
             text-align: center;
@@ -148,30 +137,24 @@
             margin-top: 30px;
         }
 
-        /* 5. VÉGLEGES LÁBLÉC (KÉP ALAPÚ DISCLAIMER) */
+        /* 5. VÉGLEGES LÁBLÉC - TELJES SZÉLESSÉGŰ KÉPPEL */
         .legal-section {
-            position: relative;
             width: 100%;
-            height: 500px;
+            min-height: 500px;
             background-image: url('image_33a201.png');
-            background-size: contain;
-            background-position: center;
+            background-size: cover; /* Kitölti a teljes szélességet */
+            background-position: center top;
             background-repeat: no-repeat;
-            background-color: #000000;
+            background-color: #111111;
             border-top: 3px solid #00a8cc;
+            position: relative;
+            z-index: 3;
         }
 
         /* MOBILOS FINOMHANGOLÁS */
         @media (max-width: 768px) {
-            .legal-section {
-                height: 300px;
-            }
-            .brand-name {
-                font-size: 2.2rem;
-            }
-            .hero-section {
-                height: 50vh;
-            }
+            .legal-section { min-height: 300px; background-size: contain; }
+            .brand-name { font-size: 2.2rem; }
         }
     </style>
 </head>
@@ -225,14 +208,13 @@
             span.innerText = words[Math.floor(Math.random() * words.length)];
             span.style.position = 'absolute';
             
-            // Korallzöld-kék szín (Türkizkék alap)
-            span.style.color = 'rgba(0, 255, 204, 0.22)'; 
+            // Erősebb korallzöld-kék szín az élesebb láthatóságért
+            span.style.color = 'rgba(0, 255, 204, 0.35)'; 
             
             span.style.left = Math.random() * 100 + 'vw';
             span.style.top = Math.random() * 100 + 'vh';
             span.style.fontSize = (Math.random() * 1.5 + 1) + 'rem';
             
-            // Mozgási sebesség
             span.style.transition = 'all 18s linear'; 
             bgContainer.appendChild(span);
             
@@ -243,9 +225,7 @@
             
             setTimeout(() => { span.remove(); }, 18000);
         }
-        
-        // Szavak generálása 2 másodpercenként
-        setInterval(createMovingText, 2000);
+        setInterval(createMovingText, 2500);
     </script>
 </body>
 </html>
