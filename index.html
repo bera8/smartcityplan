@@ -20,7 +20,7 @@
             z-index: -1; pointer-events: none;
         }
 
-        /* FEJLÉC - okosvaros.eu stílus */
+        /* FEJLÉC */
         .hero-section {
             position: relative;
             width: 100%;
@@ -54,7 +54,7 @@
             background: rgba(0, 0, 0, 0.2);
         }
 
-        /* KÁRTYÁK - Fekete gomb stílusú feliratokkal */
+        /* KÁRTYÁK */
         .cards {
             display: flex;
             justify-content: center;
@@ -75,15 +75,13 @@
         }
 
         .card:hover { transform: translateY(-15px); }
-
         .card img { width: 100%; height: 100%; object-fit: cover; }
 
-        /* AZ EREDETI FEKETE BLOKK FELIRAT */
         .card-label-black {
             position: absolute;
             bottom: 20px;
             left: 20px;
-            background: #000000; /* Tiszta fekete, nem arany */
+            background: #000000;
             color: #ffffff;
             padding: 10px 20px;
             font-size: 0.9rem;
@@ -92,11 +90,21 @@
             border-radius: 4px;
         }
 
+        /* TARTALOM */
+        .main-content { max-width: 900px; margin: 0 auto; padding: 40px 20px; text-align: justify; }
+        .video-container {
+            width: 100%;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+        }
+
         /* JOGI NYILATKOZAT KÉPPEL */
         .legal-section {
             position: relative;
             padding: 80px 20px;
-            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('image_33a201.png'); /* A Budapest sziluett kép */
+            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('image_33a201.png'); 
             background-size: cover;
             background-position: bottom;
             color: #eeeeee;
@@ -106,16 +114,7 @@
         .legal-content {
             max-width: 850px;
             margin: 0 auto;
-            line-height: 1.7;
-        }
-
-        .main-content { max-width: 900px; margin: 0 auto; padding: 40px 20px; text-align: justify; }
-        .video-container {
-            width: 100%;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-            margin-bottom: 40px;
+            line-height: 1.8;
         }
     </style>
 </head>
@@ -160,7 +159,7 @@
     <footer class="legal-section">
         <div class="legal-content">
             <p><strong>SZELLEMI TULAJDONI ÉS JOGI NYILATKOZAT</strong></p>
-            <p>Ez a projektterv és a benne bemutatott egyedi városfejlesztési koncepció Bertus Erika kizárólagos szellemi tulajdona. A vizuális megjelenítés és a technológiai integrációs terv jogvédett.</p>
+            <p>Ez a projektterv és a benne bemutatott egyedi városfejlesztési koncepció Bertus Erika kizárólagos szellemi tulajdona. <br>A vizuális megjelenítés és a technológiai integrációs terv jogvédett.</p>
             <p><strong>Függetlenségi nyilatkozat:</strong> A SmartCityPlan projekt egy független magánkezdeményezés. Nem állok szerződéses vagy hivatalos képviseleti kapcsolatban Budapest Főváros Önkormányzatával, sem állami közműszolgáltatókkal.</p>
             <p style="margin-top: 30px; opacity: 0.7;">Minden jog fenntartva © 2026 Bertus Erika</p>
         </div>
@@ -169,20 +168,24 @@
     <script>
         const words = ["SMART CITY", "ZÖLD ENERGIA", "INNOVÁCIÓ", "BUDAPEST", "FENNTARTHATÓ"];
         const bgContainer = document.getElementById('bg-text');
+        
         function createMovingText() {
             const span = document.createElement('span');
             span.innerText = words[Math.floor(Math.random() * words.length)];
             span.style.position = 'absolute';
-            span.style.color = 'rgba(0, 168, 204, 0.1)'; 
+            // Megemelt opacity (0.15), hogy jobban látsszon
+            span.style.color = 'rgba(0, 168, 204, 0.15)'; 
             span.style.left = Math.random() * 100 + 'vw';
             span.style.top = Math.random() * 100 + 'vh';
             span.style.fontSize = (Math.random() * 1.5 + 1) + 'rem';
             span.style.transition = 'all 25s linear';
             bgContainer.appendChild(span);
+            
             setTimeout(() => {
                 span.style.left = Math.random() * 100 + 'vw';
                 span.style.top = Math.random() * 100 + 'vh';
             }, 100);
+            
             setTimeout(() => { span.remove(); }, 25000);
         }
         setInterval(createMovingText, 3000);
