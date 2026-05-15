@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SmartCityPlan - Mozgásban a jövő</title>
     <style>
-        /* ALAPOK */
+        /* 1. ALAPOK */
         body {
             background-color: #ffffff;
             color: #333333;
@@ -15,7 +15,6 @@
             text-align: center;
         }
 
-        /* MOZGÓ SZAVAK HÁTTÉRBEN */
         .background-text-container {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -23,54 +22,57 @@
             pointer-events: none;
         }
 
-        /* --- A PROFI NAGY FEJLÉC (HERO SECTION) --- */
+        /* --- A PROFI NAGY FEJLÉC VISSZAÁLLÍTÁSA --- */
         .hero-section {
             position: relative;
             width: 100%;
-            height: 70vh; /* A képernyő 70%-át kitölti */
+            height: 75vh; /* A képernyő 75%-át kitölti */
             min-height: 500px;
-            /* ITT HASZNÁLJUK A plexus KÉPET VAGY A jovokep.png-t */
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('jovokep.png'); 
+            /* Ide tettem a sötétített hátteret, hogy a fehér betűk profin látszódjanak */
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('jovokep.png'); 
             background-size: cover;
             background-position: center;
-            background-attachment: fixed; /* Gördülésnél elegánsan "úszik" a kép */
+            background-attachment: fixed; /* Ez adja azt a prémium "úszó" hatást görgetéskor */
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             color: white;
+            margin-bottom: 40px;
         }
 
         .small-logo {
-            width: 100px;
+            width: 120px; /* Elegánsabb, kisebb méret */
             height: auto;
             margin-bottom: 20px;
-            filter: drop-shadow(2px 2px 5px rgba(0,0,0,0.5));
+            filter: drop-shadow(0px 4px 10px rgba(0,0,0,0.5));
         }
 
         .hero-section h1 {
-            font-size: 4rem;
+            font-size: 4.5rem;
             margin: 0;
-            text-shadow: 3px 3px 15px rgba(0,0,0,0.7);
-            letter-spacing: 4px;
+            text-shadow: 0px 5px 20px rgba(0,0,0,0.8);
+            letter-spacing: 5px;
             font-weight: 800;
+            text-transform: uppercase;
         }
 
         .hero-section p {
-            font-size: 1.8rem;
+            font-size: 2rem;
             font-style: italic;
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.7);
+            text-shadow: 0px 2px 10px rgba(0,0,0,0.8);
             margin-top: 10px;
+            font-weight: 300;
         }
 
-        /* --- KÁRTYÁK ELRENDEZÉSE --- */
+        /* --- KÁRTYÁK ELRENDEZÉSE (FEJLÉC ALATT) --- */
         .cards {
             display: flex;
             justify-content: center;
             gap: 30px;
-            padding: 60px 20px;
+            padding: 20px;
             flex-wrap: wrap;
-            background-color: #ffffff;
+            margin-bottom: 50px;
         }
 
         .card {
@@ -79,7 +81,7 @@
             height: 400px;
             border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
             transition: transform 0.4s ease;
         }
 
@@ -96,22 +98,17 @@
             padding: 20px 0;
             font-weight: bold;
             font-size: 1.2rem;
-            letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
         /* --- VIDEÓ ÉS LEÍRÁS --- */
-        .main-content {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 60px 20px;
-        }
-
         .video-container {
-            width: 100%;
+            margin: 0 auto 60px auto;
+            max-width: 800px;
+            width: 90%;
             border-radius: 25px;
             overflow: hidden;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
-            margin-bottom: 50px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
         }
 
         .video-container iframe {
@@ -121,18 +118,20 @@
         }
 
         .description-text {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 30px;
             text-align: justify;
-            line-height: 1.8;
+            line-height: 1.9;
             font-size: 1.2rem;
             color: #444;
         }
 
         footer {
-            padding: 50px;
+            padding: 60px;
             background: #f8f9fa;
             color: #999;
             border-top: 1px solid #eee;
-            font-size: 0.9rem;
         }
     </style>
 </head>
@@ -162,13 +161,12 @@
             </div>
         </section>
 
-        <section class="main-content">
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/17yjJXmKXG0" allowfullscreen></iframe>
-            </div>
-            <div class="description-text">
-                <p>Az <strong>OkosVáros</strong> projekt egy olyan egyedi vízió, amely a kinetikus és egyéb energiák urbanisztikai hasznosítására épül. Célunk a jövő városainak energiahatékonyabbá és fenntarthatóbbá tétele.</p>
-            </div>
+        <section class="video-container">
+            <iframe src="https://www.youtube.com/embed/17yjJXmKXG0" allowfullscreen></iframe>
+        </section>
+
+        <section class="description-text">
+            <p>Az <strong>OkosVáros</strong> projekt egy olyan egyedi vízió, amely a kinetikus és egyéb energiák urbanisztikai hasznosítására épül. Célunk a jövő városainak fenntarthatóbbá tétele.</p>
         </section>
     </main>
 
