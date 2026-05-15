@@ -1,172 +1,166 @@
-/* 1. ALAPBEÁLLÍTÁSOK ÉS SÖTÉT TÉMA */
-body {
-    background-color: #1a1a1a;
-    color: #e0e0e0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-    overflow-x: hidden;
-}
+/* 1. ALAPOK ÉS BETŰTÍPUS */
+        body {
+            background-color: #ffffff;
+            color: #333333;
+            font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            overflow-x: hidden;
+        }
 
-/* 2. ÚSZÓ HÁTTÉRSZÖVEG (Animált hatás a háttérben) */
-.background-text {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    font-size: 2rem;
-    color: rgba(255, 255, 255, 0.02); /* Nagyon halvány, hogy ne zavarjon */
-    pointer-events: none;
-    white-space: nowrap;
-}
+        /* MOZGÓ SZAVAK KONTEJNERE */
+        .background-text-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
 
-/* 3. FEJLÉC ÉS LOGÓ */
-header {
-    padding: 60px 20px;
-}
+        /* 2. FEJLÉC (HERO SECTION) */
+        .hero-section {
+            position: relative;
+            width: 100%;
+            height: 60vh;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('jovokep.png'); 
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
 
-.logo {
-    width: 160px; /* Ideális méret a logónak */
-    height: auto;
-    margin-bottom: 20px;
-    transition: transform 0.5s ease;
-}
+        .brand-name {
+            font-size: 3.5rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin: 0;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+        }
 
-.logo:hover {
-    transform: scale(1.05); /* Enyhe mozgás, ha ráviszik az egeret */
-}
+        .brand-blue {
+            color: #00a8cc;
+            font-weight: 500;
+        }
 
-h1 {
-    font-size: 2.8rem;
-    margin: 0;
-    color: #ffffff;
-    letter-spacing: 2px;
-}
+        .hero-capsule {
+            margin-top: 20px;
+            padding: 8px 25px;
+            border: 1px solid #00ffcc;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            color: #00ffcc;
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(5px);
+            font-style: italic;
+        }
 
-header p {
-    font-size: 1.2rem;
-    color: #00d4ff; /* Kék kiemelés a szlogennek */
-    margin-top: 10px;
-    font-weight: 300;
-}
+        /* 3. INTERAKTÍV KÁRTYÁK */
+        .cards {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            padding: 60px 20px;
+            flex-wrap: wrap;
+        }
 
-/* 4. YOUTUBE VIDEÓ KONTÉNER (700px széles, középen) */
-.video-container {
-    margin: 40px auto;
-    max-width: 700px;
-    width: 90%; /* Mobilon ne lógjon ki */
-    box-shadow: 0 0 40px rgba(0, 0, 0, 0.6);
-    border-radius: 12px;
-    overflow: hidden;
-    line-height: 0;
-    border: 1px solid #333;
-}
+        .card {
+            position: relative;
+            width: 300px;
+            height: 400px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
 
-.video-container iframe {
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    border: none;
-}
+        .card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
 
-/* 5. LEÍRÁS SZÖVEG FORMÁZÁSA */
-.description-text {
-    max-width: 800px;
-    margin: 60px auto;
-    padding: 0 25px;
-    line-height: 1.8;
-    text-align: justify;
-}
+        .card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
 
-.description-text h2 {
-    text-align: center;
-    color: #00d4ff;
-    font-size: 1.8rem;
-    margin-bottom: 30px;
-}
+        /* FEKETE BLOKK FELIRAT A KÁRTYÁKON */
+        .card-label-black {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: #000000;
+            color: #ffffff;
+            padding: 10px 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            border-radius: 4px;
+        }
 
-.description-text p {
-    margin-bottom: 20px;
-    font-size: 1.1rem;
-}
+        /* 4. TARTALMI RÉSZ ÉS VIDEÓ */
+        .main-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            text-align: justify;
+        }
 
-.manifesto {
-    font-weight: bold;
-    font-size: 1.5rem;
-    color: #00d4ff;
-    text-align: center;
-    margin-top: 40px;
-    font-style: italic;
-    letter-spacing: 1px;
-}
+        .video-container {
+            width: 100%;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+        }
 
-/* 6. KÁRTYÁK - JAVÍTOTT, RÁÚSZÓ FELIRATOKKAL */
-.cards {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    padding: 60px 20px;
-    flex-wrap: wrap;
-}
+        .video-container iframe {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            border: none;
+        }
 
-.card {
-    position: relative; /* Kritikus: ez tartja belül a feliratot */
-    width: 280px;
-    height: 380px;
-    border-radius: 15px;
-    overflow: hidden;
-    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
-}
+        .description-text {
+            line-height: 1.8;
+            font-size: 1.15rem;
+            color: #444;
+        }
 
-.card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Kitölti a kártyát torzítás nélkül */
-}
+        .manifesto-text {
+            text-align: center;
+            color: #00a8cc;
+            font-weight: bold;
+            font-size: 1.4rem;
+            margin-top: 30px;
+        }
 
-.card-label {
-    position: absolute; /* Ráragasztja a szöveget a képre */
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.8); /* Erősebb sötétítés a jó olvashatóságért */
-    color: #ffffff;
-    padding: 25px 0;
-    font-weight: bold;
-    font-size: 1.1rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
+        /* 5. VÉGLEGES LÁBLÉC (KÉP ALAPÚ DISCLAIMER) */
+        .legal-section {
+            position: relative;
+            width: 100%;
+            height: 500px; /* A generált kép magasságához igazítva */
+            background-image: url('image_33a201.png');
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: #000000;
+            border-top: 3px solid #00a8cc;
+        }
 
-.card:hover {
-    transform: translateY(-15px); /* Kiemelkedik hoverre */
-}
-
-/* 7. LÁBLÉC ÉS JOGI NYILATKOZAT */
-footer {
-    padding: 80px 20px;
-    background-color: #111111;
-    border-top: 1px solid #333;
-    margin-top: 50px;
-}
-
-.legal-notice {
-    max-width: 850px;
-    margin: 0 auto;
-    font-size: 0.85rem;
-    color: #777777;
-    line-height: 1.6;
-}
-
-.legal-notice p {
-    margin: 10px 0;
-}
-
-/* MOBILOS FINOMHANGOLÁS */
-@media (max-width: 600px) {
-    h1 { font-size: 2rem; }
-    .card { width: 100%; max-width: 300px; }
-}
+        /* MOBILOS FINOMHANGOLÁS */
+        @media (max-width: 768px) {
+            .legal-section {
+                height: 300px;
+            }
+            .brand-name {
+                font-size: 2.5rem;
+            }
+        }
