@@ -110,7 +110,7 @@
             margin: 0 auto;
             padding: 40px 20px;
             text-align: justify;
-            background: rgba(255, 255, 255, 0.92); /* Finom áttetsző fehér háttér az olvashatóságért */
+            background: rgba(255, 255, 255, 0.92); 
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
@@ -135,13 +135,14 @@
             margin-top: 30px;
         }
 
-        /* 5. VÉGLEGES LÁBLÉC - JAVÍTVA PNG FORMÁTUMRA */
+        /* 5. VÉGLEGES LÁBLÉC - ARÁNYOS MEGJELENÍTÉSRE JAVÍTVA */
         .legal-section {
             width: 100%;
-            min-height: 500px; 
-            background-image: url('image_33a201.png'); /* Itt már a .png kiterjesztést keresi a kód! */
-            background-size: cover; 
-            background-position: center top;
+            aspect-ratio: 1920 / 840; /* Tartja a kép pontos arányát, hogy ne vágja le a szöveget */
+            max-height: 500px;
+            background-image: url('image_33a201.png'); 
+            background-size: contain; /* Mindig a teljes képet mutatja, nem vágja le az alját! */
+            background-position: center bottom;
             background-repeat: no-repeat;
             background-color: #0d0d0d; 
             border-top: 3px solid #00a8cc;
@@ -152,7 +153,6 @@
 
         /* MOBILOS FINOMHANGOLÁS */
         @media (max-width: 768px) {
-            .legal-section { min-height: 250px; background-size: contain; }
             .brand-name { font-size: 2.2rem; }
         }
     </style>
