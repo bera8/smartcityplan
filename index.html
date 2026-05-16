@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SmartCityPlan - Mozgásban a jövő</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* 1. ALAPOK ÉS RÉTEGKEZELÉS */
         body {
@@ -16,20 +17,35 @@
             overflow-x: hidden;
         }
 
-        /* MOZGÓ SZAVAK - Javított láthatóság */
-        .background-text-container {
+        /* HÁTTÉR IKONOK KONTEJNERE */
+        .background-icons-container {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: 0; /* A fehér háttér előtt, de a tartalom mögött */
+            z-index: 0; 
             pointer-events: none;
+        }
+
+        /* AZ IKONOK EGYEDI STÍLUSA */
+        .background-icons-container i {
+            position: absolute;
+            /* Nagyon halvány, elegáns szürkés-türkiz árnyalat */
+            color: rgba(180, 190, 200, 0.18); 
+            transition: transform 4s ease-in-out;
+            animation: floatAnimation 6s ease-in-out infinite alternate;
+        }
+
+        /* Finom lebegő animáció az ikonoknak */
+        @keyframes floatAnimation {
+            0% { transform: translateY(0px) rotate(0deg); }
+            100% { transform: translateY(-10px) rotate(5deg); }
         }
 
         header, main {
             position: relative;
-            z-index: 2; /* Ez emeli a tartalmat a mozgó szavak fölé */
+            z-index: 2;
         }
 
         /* 2. FEJLÉC (HERO SECTION) */
@@ -115,6 +131,8 @@
             margin: 0 auto;
             padding: 40px 20px;
             text-align: justify;
+            background: rgba(255, 255, 255, 0.9); /* Fehér háttér a szöveg alatt, hogy biztosan olvasható legyen */
+            border-radius: 10px;
         }
 
         .video-container {
@@ -137,30 +155,33 @@
             margin-top: 30px;
         }
 
-        /* 5. VÉGLEGES LÁBLÉC - TELJES SZÉLESSÉGŰ KÉPPEL */
+        /* 5. VÉGLEGES LÁBLÉC - TELJES SZÉLESSÉGŰ JPG */
         .legal-section {
             width: 100%;
-            min-height: 500px;
-            background-image: url('image_33a201.png');
-            background-size: cover; /* Kitölti a teljes szélességet */
+            min-height: 500px; 
+            background-image: url('image_33a201.jpg'); 
+            background-size: cover; 
             background-position: center top;
             background-repeat: no-repeat;
-            background-color: #111111;
+            background-color: #0d0d0d; 
             border-top: 3px solid #00a8cc;
             position: relative;
             z-index: 3;
+            margin-top: 50px;
         }
 
         /* MOBILOS FINOMHANGOLÁS */
         @media (max-width: 768px) {
-            .legal-section { min-height: 300px; background-size: contain; }
+            .legal-section { min-height: 250px; background-size: contain; }
             .brand-name { font-size: 2.2rem; }
+            /* Mobilon elrejtjük a háttér-ikonokat, hogy ne legyen zsúfolt */
+            .background-icons-container { display: none; }
         }
     </style>
 </head>
 <body>
 
-    <div id="bg-text" class="background-text-container"></div>
+    <div id="bg-icons" class="background-icons-container"></div>
 
     <header class="hero-section">
         <img src="LOGO1.png" alt="Logo" style="width: 80px; margin-bottom: 10px;">
@@ -200,32 +221,49 @@
     <footer class="legal-section"></footer>
 
     <script>
-        const words = ["SMART CITY", "ZÖLD ENERGIA", "INNOVÁCIÓ", "BUDAPEST", "FENNTARTHATÓ"];
-        const bgContainer = document.getElementById('bg-text');
-        
-        function createMovingText() {
-            const span = document.createElement('span');
-            span.innerText = words[Math.floor(Math.random() * words.length)];
-            span.style.position = 'absolute';
+        // Okosváros témájú FontAwesome ikonok listája
+        const icons = [
+            "fa-solid fa-city",          // Város / Épületek
+            "fa-solid fa-building",      // Ház / Iroda
+            "fa-solid fa-mobile-screen", // Mobiltelefon
+            "fa-solid fa-car-battery",   // Akkumulátor / Energia
+            "fa-solid fa-bolt",          // Villám / Áram
+            "fa-solid fa-seedling",      // Zöld növény / Fenntarthatóság
+            "fa-solid fa-wifi",          // Wifi / Konnektivitás
+            "fa-solid fa-user-group",    // Emberek / Közösség
+            "fa-solid fa-solar-panel",   // Napelem
+            "fa-solid fa-plug"           // Elektromos hálózat
+        ];
+
+        const container = document.getElementById('bg-icons');
+        const iconCount = 32; // Összesen ennyi ikon jelenik meg elszórtan
+
+        for (let i = 0; i < iconCount; i++) {
+            const iconTag = document.createElement('i');
+            // Véletlenszerű ikon kiválasztása a listából
+            iconTag.className = icons[Math.floor(Math.random() * icons.length)];
             
-            // Erősebb korallzöld-kék szín az élesebb láthatóságért
-            span.style.color = 'rgba(0, 255, 204, 0.35)'; 
+            // Véletlenszerű méretezés (1rem és 2.5rem között)
+            iconTag.style.fontSize = (Math.random() * 1.5 + 1) + 'rem';
             
-            span.style.left = Math.random() * 100 + 'vw';
-            span.style.top = Math.random() * 100 + 'vh';
-            span.style.fontSize = (Math.random() * 1.5 + 1) + 'rem';
+            // Elhelyezés: úgy osztjuk el, hogy a két szélső sávba essenek jobban
+            let leftPosition;
+            if (i % 2 === 0) {
+                // Bal oldali sáv (0% - 20% között)
+                leftPosition = Math.random() * 18;
+            } else {
+                // Jobb oldali sáv (80% - 98% között)
+                leftPosition = 82 + (Math.random() * 16);
+            }
             
-            span.style.transition = 'all 18s linear'; 
-            bgContainer.appendChild(span);
+            iconTag.style.left = leftPosition + 'vw';
+            iconTag.style.top = (Math.random() * 90) + 'vh';
             
-            setTimeout(() => {
-                span.style.left = Math.random() * 100 + 'vw';
-                span.style.top = Math.random() * 100 + 'vh';
-            }, 100);
+            // Véletlenszerű késleltetés az animációnak, hogy ne egyszerre mozogjanak
+            iconTag.style.animationDelay = (Math.random() * 5) + 's';
             
-            setTimeout(() => { span.remove(); }, 18000);
+            container.appendChild(iconTag);
         }
-        setInterval(createMovingText, 2500);
     </script>
 </body>
 </html>
