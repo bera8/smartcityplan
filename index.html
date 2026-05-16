@@ -135,16 +135,16 @@
             margin-top: 30px;
         }
 
-        /* 5. VÉGLEGES LÁBLÉC - ARÁNYOS MEGJELENÍTÉSRE JAVÍTVA */
+        /* 5. VÉGLEGES LÁBLÉC - SZÍNKORREKCIÓVAL JAVÍTVA */
         .legal-section {
             width: 100%;
-            aspect-ratio: 1920 / 840; /* Tartja a kép pontos arányát, hogy ne vágja le a szöveget */
+            aspect-ratio: 1920 / 840; 
             max-height: 500px;
             background-image: url('image_33a201.png'); 
-            background-size: contain; /* Mindig a teljes képet mutatja, nem vágja le az alját! */
+            background-size: contain; 
             background-position: center bottom;
             background-repeat: no-repeat;
-            background-color: #0d0d0d; 
+            background-color: #080808; /* Átírva a kép saját, sötét tónusára a tökéletes egybeolvadásért */
             border-top: 3px solid #00a8cc;
             position: relative;
             z-index: 3;
